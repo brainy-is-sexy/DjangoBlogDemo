@@ -16,7 +16,7 @@
 2. 安装项目依赖
 
    ```bash
-   $ cd HelloDjango-blog-tutorial
+   $ cd HelloDjango
    $ pip install -r requirements.txt
    ```
 
@@ -86,23 +86,19 @@
 
 
 ### 线上部署
-
-线上部署的详细文档请参考下方教程目录索引中的 **部署篇** 部分，如果不想了解细节或已了解细节，使用 Docker 仅需以下几个简单步骤就可以上线运行：
+使用Docker线上部署
 
 > **小贴士：**
 >
-> 国内服务器请设置好镜像加速，否则 Docker 构建容器的过程会非常缓慢！具体可参考 **部署篇** Docker 部署 django 中线上部署部分的内容。
+> 国内服务器请设置好镜像加速，否则 Docker 构建容器的过程会非常缓慢！。
 
 1. 克隆代码到服务器
 
-   ```bash
-   $ git clone https://github.com/HelloGitHub-Team/HelloDjango-blog-tutorial.git
-   ```
 
 2. 创建环境变量文件用于存放项目敏感信息
 
    ```bash
-   $ cd HelloDjango-blog-tutorial
+   $ cd HelloDjango
    $ mkdir .envs
    $ touch .envs/.production
    ```
@@ -133,17 +129,5 @@
    - hellodjango_blog_tutorial
 
 7. 配置 HTTPS 证书（没有配置域名无法配置，只能通过服务器 ip 以 HTTP 协议访问）
-
-   ```bash
-   $ docker exec -it hellodjango_blog_tutorial_nginx certbot --nginx -n --agree-tos --redirect --email email@hellodjango.com -d hellodjango-blog-tutorial-demo.zmrenwu.com
-   ```
-
-   解释一下各参数的含义：
-
-   - --nginx，使用 Nginx 插件
-   - -n 非交互式，否则会弹出询问框
-   - --redirect，自动配置 Nginx，将所有 http 请求都重定向到 https
-   - --email xxx@xxx.com，替换为自己的 email，用于接收通知
-   - -d 域名列表，开启 https 的域名，替换为自己的域名，多个域名用逗号分隔
 
 8. 浏览器访问域名或者服务器 ip 即可进入博客首页
