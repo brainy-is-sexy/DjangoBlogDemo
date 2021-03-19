@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==2.2.3"
+django = "==2.2.18"
 markdown = {index = "https://pypi.tuna.tsinghua.edu.cn/simple",version = "*"}
 gunicorn = "*"
 
